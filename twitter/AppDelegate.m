@@ -10,6 +10,7 @@
 #import "TwitterClient.h"
 #import "TimelineVC.h"
 #import "SignedOutVC.h"
+#import "TweetViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) SignedOutVC *signedOutVC;
 @property (nonatomic, strong) UINavigationController *timelineNVC;
 @property (nonatomic, strong) UIViewController *currentVC;
+@property (nonatomic, strong) TweetViewController *tweetViewController;
 
 @end
 
@@ -129,6 +131,14 @@
     }
     
     return _signedOutVC;
+}
+
+- (TweetViewController *)tweetViewController {
+    if (!_tweetViewController) {
+        _tweetViewController = [[TweetViewController alloc] init];
+    }
+    
+    return _tweetViewController;
 }
 
 - (void)updateRootVC {

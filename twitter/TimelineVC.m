@@ -7,6 +7,8 @@
 //
 
 #import "TimelineVC.h"
+#import "TweetViewController.h"
+#import "ComposeViewController.h"
 
 @interface TimelineVC ()
 
@@ -14,6 +16,7 @@
 
 - (void)onSignOutButton;
 - (void)reload;
+- (void)onCompose;
 
 @end
 
@@ -34,13 +37,17 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"compose.png"] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,6 +123,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    Tweet *tweet = self.tweets[indexPath.row];
+    //NSString *id = [tweet objectForKey:@"id"];
+    //Initialize new viewController
+    TweetViewController *tweetViewController = [[TweetViewController alloc] initWithNibName:@"TweetViewController" bundle:nil tweet:tweet];
+    //Push new view to navigationController stack
+    [self.navigationController pushViewController:tweetViewController animated:YES];
 }
 
 /*
@@ -131,6 +144,13 @@
  */
 
 #pragma mark - Private methods
+
+- (void)onCompose {
+    ComposeViewController *composeViewController = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
+    composeViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:composeViewController];
+    [self presentViewController:cntrol animated:YES completion:nil];
+}
 
 - (void)onSignOutButton {
     [User setCurrentUser:nil];
