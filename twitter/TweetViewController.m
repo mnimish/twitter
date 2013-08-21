@@ -7,10 +7,14 @@
 //
 
 #import "TweetViewController.h"
+#import "ComposeViewController.h"
+#import "TwitterClient.h"
 
 @interface TweetViewController ()
 
--(void) onComposeBtn;
+-(void)onReply;
+-(void) onReTweet;
+
 @end
 
 @implementation TweetViewController
@@ -27,6 +31,13 @@
 
 - (void)viewDidLoad
 {
+    [self.replyBtn setBackgroundImage:[UIImage imageNamed:@"Reply.png"] forState:UIControlStateNormal];
+    [self.replyBtn addTarget:self action:@selector(onReply) forControlEvents: UIControlEventTouchUpInside];
+    [self.retweetBtn setBackgroundImage:[UIImage imageNamed:@"retweet.png"] forState:UIControlStateNormal];
+    [self.retweetBtn addTarget:self action:@selector(onReTweet) forControlEvents: UIControlEventTouchUpInside];
+    [self.favBtn setBackgroundImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    [self.favBtn addTarget:self action:@selector(onReply) forControlEvents: UIControlEventTouchUpInside];
+    
     NSDictionary *user = [self.tweet objectForKey:@"user"];
     self.profileImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[user objectForKey:@"profile_image_url"]]]];
     self.userName.text = [user objectForKey:@"name"];
@@ -51,5 +62,19 @@
 
 #pragma -mark Private methods
 
+-(void)onReply {
+    ComposeViewController *composeViewController = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil tweet:self.tweet];
+    composeViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    UINavigationController *cntrol = [[UINavigationController alloc] initWithRootViewController:composeViewController];
+    [self presentViewController:cntrol animated:YES completion:nil];
+}
+
+-(void) onReTweet {
+    [[TwitterClient instance] reTweet:[self.tweet objectForKey:@"id"] success:^(AFHTTPRequestOperation *operation, id response) {
+        self.retweetBtn.enabled = FALSE;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"DSd");
+    }];
+}
 
 @end

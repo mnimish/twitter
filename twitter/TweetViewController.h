@@ -15,6 +15,10 @@
 @property (strong, nonatomic) IBOutlet UIImageView *profileImage;
 @property (strong, nonatomic) IBOutlet UILabel *text;
 
+@property (strong, nonatomic) IBOutlet UIButton *replyBtn;
+@property (strong, nonatomic) IBOutlet UIButton *retweetBtn;
+@property (strong, nonatomic) IBOutlet UIButton *favBtn;
+
 @property (nonatomic, strong) Tweet *tweet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil tweet:(Tweet *) tweet;

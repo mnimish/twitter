@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140926A717BC867B00090930 /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140926A517BC852F00090930 /* TweetViewController.m */; };
+		140926A817BC8C5600090930 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140926A617BC852F00090930 /* TweetViewController.xib */; };
+		140926AA17BDC0CE00090930 /* twitter-bird-blue-on-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926A917BDC0CE00090930 /* twitter-bird-blue-on-white.png */; };
+		140926AC17BDC58900090930 /* tweet.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 140926AB17BDC58900090930 /* tweet.jpeg */; };
+		140926B517C32C8400090930 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140926B317C32C6E00090930 /* ComposeViewController.m */; };
+		140926B617C32C9600090930 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140926B417C32C6E00090930 /* ComposeViewController.xib */; };
+		140926B817C3EB2600090930 /* compose.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926B717C3EB2600090930 /* compose.png */; };
+		140926BD17C4856E00090930 /* favoriteFilled.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926B917C4856E00090930 /* favoriteFilled.png */; };
+		140926BE17C4856E00090930 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926BA17C4856E00090930 /* favorite.png */; };
+		140926BF17C4856E00090930 /* Reply.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926BB17C4856E00090930 /* Reply.png */; };
+		140926C017C4856E00090930 /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 140926BC17C4856E00090930 /* retweet.png */; };
 		42CC892C17AF4C6A00B6D34B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CC892B17AF4C6A00B6D34B /* Foundation.framework */; };
 		42CC892E17AF4C6A00B6D34B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CC892D17AF4C6A00B6D34B /* CoreGraphics.framework */; };
 		42CC893017AF4C6A00B6D34B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CC892F17AF4C6A00B6D34B /* UIKit.framework */; };
@@ -42,6 +53,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140926A417BC852F00090930 /* TweetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
+		140926A517BC852F00090930 /* TweetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
+		140926A617BC852F00090930 /* TweetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		140926A917BDC0CE00090930 /* twitter-bird-blue-on-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-bird-blue-on-white.png"; sourceTree = "<group>"; };
+		140926AB17BDC58900090930 /* tweet.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tweet.jpeg; sourceTree = "<group>"; };
+		140926B217C32C6E00090930 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		140926B317C32C6E00090930 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		140926B417C32C6E00090930 /* ComposeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		140926B717C3EB2600090930 /* compose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compose.png; sourceTree = "<group>"; };
+		140926B917C4856E00090930 /* favoriteFilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoriteFilled.png; sourceTree = "<group>"; };
+		140926BA17C4856E00090930 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		140926BB17C4856E00090930 /* Reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reply.png; sourceTree = "<group>"; };
+		140926BC17C4856E00090930 /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
 		42CC892817AF4C6A00B6D34B /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42CC892B17AF4C6A00B6D34B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42CC892D17AF4C6A00B6D34B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,7 +181,14 @@
 		42CC893217AF4C6A00B6D34B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				140926B917C4856E00090930 /* favoriteFilled.png */,
+				140926BA17C4856E00090930 /* favorite.png */,
+				140926BB17C4856E00090930 /* Reply.png */,
+				140926BC17C4856E00090930 /* retweet.png */,
+				140926B717C3EB2600090930 /* compose.png */,
 				42CC893317AF4C6A00B6D34B /* twitter-Info.plist */,
+				140926AB17BDC58900090930 /* tweet.jpeg */,
+				140926A917BDC0CE00090930 /* twitter-bird-blue-on-white.png */,
 				42CC893417AF4C6A00B6D34B /* InfoPlist.strings */,
 				42CC893717AF4C6B00B6D34B /* main.m */,
 				42CC893917AF4C6B00B6D34B /* twitter-Prefix.pch */,
@@ -192,6 +223,12 @@
 				42CC89A717B0C31900B6D34B /* SignedOutVC.h */,
 				42CC89A817B0C31900B6D34B /* SignedOutVC.m */,
 				42CC89A917B0C31900B6D34B /* SignedOutVC.xib */,
+				140926A417BC852F00090930 /* TweetViewController.h */,
+				140926A517BC852F00090930 /* TweetViewController.m */,
+				140926A617BC852F00090930 /* TweetViewController.xib */,
+				140926B217C32C6E00090930 /* ComposeViewController.h */,
+				140926B317C32C6E00090930 /* ComposeViewController.m */,
+				140926B417C32C6E00090930 /* ComposeViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -322,9 +359,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140926B617C32C9600090930 /* ComposeViewController.xib in Resources */,
+				140926BE17C4856E00090930 /* favorite.png in Resources */,
+				140926A817BC8C5600090930 /* TweetViewController.xib in Resources */,
 				42CC89AB17B0C31900B6D34B /* SignedOutVC.xib in Resources */,
+				140926AA17BDC0CE00090930 /* twitter-bird-blue-on-white.png in Resources */,
+				140926BF17C4856E00090930 /* Reply.png in Resources */,
+				140926B817C3EB2600090930 /* compose.png in Resources */,
 				42CC893617AF4C6A00B6D34B /* InfoPlist.strings in Resources */,
 				42CC893E17AF4C6B00B6D34B /* Images.xcassets in Resources */,
+				140926AC17BDC58900090930 /* tweet.jpeg in Resources */,
+				140926C017C4856E00090930 /* retweet.png in Resources */,
+				140926BD17C4856E00090930 /* favoriteFilled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +420,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140926B517C32C8400090930 /* ComposeViewController.m in Sources */,
+				140926A717BC867B00090930 /* TweetViewController.m in Sources */,
 				42CC89B917B0D7DD00B6D34B /* NSDictionary+CPAdditions.m in Sources */,
 				42CC89AA17B0C31900B6D34B /* SignedOutVC.m in Sources */,
 				42CC896117AF871500B6D34B /* TwitterClient.m in Sources */,

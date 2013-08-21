@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *tweetText;
 @property (strong, nonatomic) IBOutlet UILabel *remainingCount;
+@property (nonatomic, strong) Tweet *tweet;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil tweet:(Tweet *) tweet;
 
 @end

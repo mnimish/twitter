@@ -19,11 +19,14 @@
 
 @implementation ComposeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil tweet:(Tweet *) tweet
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"New Tweet";
+        if(tweet) {
+            self.tweet = tweet;
+        }
     }
     return self;
 }
@@ -33,6 +36,12 @@
     [super viewDidLoad];
     [self.tweetText becomeFirstResponder];
     self.tweetText.delegate = self;
+    
+    if(self.tweet) {
+        NSDictionary *user = [self.tweet objectForKey:@"user"];
+        [self.tweetText setText: [@"@" stringByAppendingString: [[NSString alloc] initWithFormat:@"%@ ", [user objectForKey:@"screen_name"]]]];
+        self.remainingCount.text = [NSString stringWithFormat:@"%d", 140 - [[self.tweetText text] length]];
+    }
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(onBack)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStyleDone target:self action:@selector(onTweet)];
@@ -55,11 +64,19 @@
 }
 
 -(void) onTweet {
-    [[TwitterClient instance] postTweet:self.tweetText.text success:^(AFHTTPRequestOperation *operation, id response) {
-        [self close];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // Do nothing
-    }];
+    if(self.tweet) {
+        [[TwitterClient instance] postTweetReply:self.tweetText.text toTweetId:[self.tweet objectForKey:@"id"] success:^(AFHTTPRequestOperation *operation, id response) {
+            [self close];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // Do nothing
+        }];
+    } else {
+        [[TwitterClient instance] postTweet:self.tweetText.text success:^(AFHTTPRequestOperation *operation, id response) {
+            [self close];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // Do nothing
+        }];
+    }
 }
 
 #pragma mark - textview delegates
